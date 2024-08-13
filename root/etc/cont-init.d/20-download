@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv bash
+
+# download and unpack
+echo "[cont-init.d] Downloading and unpacking"
+
+git config --global --add safe.directory /abs_library_tools
+
+if [ ! -f "/abs_library_tools/abs_library_tools/daemons.py" ]; then
+    echo "[cont-init.d] First start, cloning repo"
+    git clone  https://github.com/sasanjac/abs-library-tools /abs_library_tools
+    touch /abs_library_tools/updated
+else
+    cd /abs_library_tools
+    localv=$(git rev-parse HEAD)
+    remotev=$(git ls-remote https://github.com/sasanjac/abs-library-tools.git refs/heads/main | cut -c1-40)
+    if [ $localv = $remotev ]; then
+        echo -e "[cont-init.d] Latest Version. No update needed"
+    else
+        echo -e "[cont-init.d] Newer Version. Updating"
+        git fetch
+        git reset --hard origin/main
+        touch /abs_library_tools/updated
+    fi
+fi

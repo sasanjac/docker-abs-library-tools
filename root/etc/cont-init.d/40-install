@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+if [ -f "/abs_library_tools/updated" ]; then
+    echo "[cont-init.d] Installing"
+    python3 -m pip install -U --quiet --disable-pip-version-check --break-system-packages /abs_library_tools
+    rm /abs_library_tools/updated
+    echo "[cont-init.d] Installation done"
+fi

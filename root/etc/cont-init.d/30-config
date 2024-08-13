@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+# set home of the abc user
+usermod -d /abs_library_tools abc
+
+# permissions
+echo "[cont-init.d] Setting permissions this may take some time"
+
+chown -R abc:abc /abs_library_tools
