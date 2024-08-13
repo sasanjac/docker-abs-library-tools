@@ -5,7 +5,7 @@ echo "[cont-init.d] Downloading and unpacking"
 
 git config --global --add safe.directory /abs_library_tools
 
-if [ ! -f "/abs_library_tools/abs_library_tools/daemons.py" ]; then
+if [ ! -f "/abs_library_tools/src/alt/daemons.py" ]; then
     echo "[cont-init.d] First start, cloning repo"
     git clone  https://github.com/sasanjac/abs-library-tools /abs_library_tools
     touch /abs_library_tools/updated

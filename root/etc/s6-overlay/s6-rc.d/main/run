@@ -3,4 +3,4 @@
 UMASK_SET=${UMASK_SET:-022}
 umask "$UMASK_SET"
 
-exec s6-setuidgid abc python3 /abs_library_tools/abs_library_tools/daemons.py
+exec s6-setuidgid abc python3 /abs_library_tools/src/alt/daemons.py
