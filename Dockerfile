@@ -16,8 +16,6 @@ RUN \
 
 # add local files
 COPY root/ /
-RUN chmod -r 744 /etc/cont-init-d
-RUN chmod -r 744 /etc/services.d
 
 # ports and volumes
 VOLUME /data/import /data/export

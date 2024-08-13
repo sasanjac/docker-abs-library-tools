@@ -6,4 +6,4 @@ usermod -d /abs_library_tools abc
 # permissions
 echo "[cont-init.d] Setting permissions this may take some time"
 
-chown -R abc:abc /abs_library_tools
+lsiown -R abc:abc /abs_library_tools /data
