@@ -4,48 +4,66 @@ LABEL repository="https://github.com/sasanjac/docker-abs-library-tools"
 
 # install build packages
 RUN \
+	# add repository for fdk-aac-dev
+	echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
 	echo "**** install build packages ****" && \
 	apk add --no-cache --virtual=build-dependencies \
+	binutils \
+	build-base \
+	ca-certificates \
 	cmake \
+	fdk-aac-dev \
 	ffmpeg-dev \
+	freetype-dev \
 	g++ \
 	gcc \
 	jpeg-dev \
-	libpng-dev \
-	make \
-	openjpeg-dev \
-	python2-dev \
-	binutils-libs \
-	binutils \
-	build-base \
+	lame-dev \
+	libass-dev \
+	libc-dev \
 	libgcc \
+	libogg-dev \
+	libpng-dev \
+	libtheora-dev \
+	libvorbis-dev \
+	libvpx-dev \
+	libwebp-dev \
 	make \
-	pkgconf \
-	pkgconfig \
+	musl-dev \
+	openjpeg-dev \
 	openssl \
 	openssl-dev \
-	ca-certificates \
+	opus-dev \
 	pcre \
-	musl-dev \
-	libc-dev \
 	pcre-dev \
-	zlib-dev \
+	pkgconf \
+	pkgconfig \
+	x264-dev \
+	x265-dev \
 	yasm-dev \
-	lame-dev \
-	libogg-dev \
-	libvpx-dev \
-	libvorbis-dev \
-	freetype-dev \
-	libtheora-dev \
-	opus-dev && \
+	zlib-dev && \
 	# install runtime packages
 	echo "**** install runtime packages ****" && \
 	apk add --no-cache \
+	fdk-aac \
 	git \
+	jpeg \
+	lame \
+	libass \
+	libcrypto3 \
+	libffi \
+	libpng \
+	libtheora \
+	libvorbis \
+	libvpx \
+	libwebp \
+	nasm \
+	openjpeg \
+	opus \
+	py3-pip \
 	python3 \
-	py3-pip && \
-	# add repository for fdk-aac-dev
-	echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+	x264 \
+	x265 && \
 	# install fdk-aac-dev packages
 	apk add --update --no-cache \
 	fdk-aac-dev && \
@@ -69,7 +87,6 @@ RUN \
 	--enable-libass \
 	--enable-libwebp \
 	--enable-postproc \
-	--enable-avresample \
 	--enable-libfreetype \
 	--enable-openssl \
 	--disable-debug && \
