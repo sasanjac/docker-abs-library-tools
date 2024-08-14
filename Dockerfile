@@ -18,7 +18,6 @@ RUN \
 	g++ \
 	gcc \
 	jpeg-dev \
-	lame-dev \
 	libass-dev \
 	libc-dev \
 	libgcc \
@@ -27,7 +26,6 @@ RUN \
 	libtheora-dev \
 	libvorbis-dev \
 	libvpx-dev \
-	libwebp-dev \
 	make \
 	musl-dev \
 	openjpeg-dev \
@@ -49,6 +47,7 @@ RUN \
 	git \
 	jpeg \
 	lame \
+	lame-dev \
 	libass \
 	libcrypto3 \
 	libffi \
@@ -57,16 +56,16 @@ RUN \
 	libvorbis \
 	libvpx \
 	libwebp \
+	libwebp-dev \
+	libxcb \
 	nasm \
 	openjpeg \
 	opus \
 	py3-pip \
 	python3 \
 	x264 \
+	x264-libs \
 	x265 && \
-	# install fdk-aac-dev packages
-	apk add --update --no-cache \
-	fdk-aac-dev && \
 	# compile ffmpeg
 	echo "**** compiling ffmpeg ****" && \
 	cd /tmp && wget http://ffmpeg.org/releases/ffmpeg-7.0.tar.gz && \
